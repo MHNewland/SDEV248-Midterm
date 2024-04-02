@@ -8,7 +8,6 @@ namespace SDEV248Midterm
 {
     class Sword: Item
     {
-        string description;
         bool usable;
 
         public Sword(string description, bool usable): base(description, usable)
