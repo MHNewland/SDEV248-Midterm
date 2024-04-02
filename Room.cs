@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System;
 
 namespace SDEV248Midterm {
     public abstract class Room {
@@ -59,6 +60,19 @@ namespace SDEV248Midterm {
         public Room GetRoom(string direction)
         {
             return exits[direction];
+        }
+
+        public void RemoveItem(string item)
+        {
+            foreach (Item i in items)
+            {
+                if (i.itemName == item)
+                {
+                    items.Remove(i);
+                    break;
+                }
+            }
+            Console.WriteLine($"Item {item} not found in room {roomName}");
         }
     }
 }
