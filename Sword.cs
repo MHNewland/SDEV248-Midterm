@@ -14,5 +14,10 @@ namespace SDEV248Midterm
         {
            
         }
+
+        public override void Use()
+        {
+            Console.WriteLine("can't use the sword");
+        }
     }
 }

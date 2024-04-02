@@ -10,6 +10,7 @@ namespace SDEV248Midterm
         public static void Main(string[] args)
         {
             List<string> travelWords = new List<string> { "GO", "WALK", "MOVE" };
+            List<string> actionWords = new List<string> { "GRAB", "LOOK", "USE" };
 
             //Instantiate first room
             FirstFloorHallwayOne firstFloorHallwayOne = new FirstFloorHallwayOne();
@@ -19,9 +20,6 @@ namespace SDEV248Midterm
             bool validInput;
             string playerInput;
             string[] playerInputArray;
-
-            //list of visited rooms to prevent instantiating multiples of the same room.
-            List<Room> visitedRooms = new List<Room>();
 
 #region Gameplay loop
             while (true) {
@@ -48,16 +46,29 @@ namespace SDEV248Midterm
                         continue;
                     }
 
-                    //invalid action
-                    if(!travelWords.Contains(playerInputArray[0])){
-                        Console.WriteLine("Invalid Action");
+                    //Travel
+                    if(travelWords.Contains(playerInputArray[0])){
+                        Console.WriteLine("traveling");
+                        if (currentRoom.GetExits().Contains(playerInputArray[1]))
+                        {
+                            currentRoom = currentRoom.GetRoom(playerInputArray[1]);
+                        }
+                        else
+                        {
+                            //invalid direction
+                            Console.WriteLine("Invalid Direction");
+                            continue;
+                        }
+                    //action
+                    }else if(actionWords.Contains(playerInputArray[0])){
+
+                        Console.WriteLine("doing action");
+                    }
+                    //invalid word
+                    else
+                    {
+                        Console.WriteLine("invalid input");
                         continue;
-                    }else if(!currentRoom.GetExits().Contains(playerInputArray[1])){
-                        //invalid direction
-                        Console.WriteLine("Invalid Direction");
-                        continue;
-                    }else{
-                        Console.WriteLine("test complete");
                     }
 
                     validInput = true;

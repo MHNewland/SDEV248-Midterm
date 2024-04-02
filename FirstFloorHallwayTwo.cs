@@ -7,25 +7,35 @@ namespace SDEV248Midterm
     public class FirstFloorHallwayTwo : Room {
 
 
-        const string roomName = "FirstFloorHallway";
 
-        //since the hallway has 2 parts, if user is in the first section
-        //value will be true, if they're in the second section, it'll be fasle
-        bool firstSection = true;
+        //store each room that this room connects to
+        FirstFloorHallwayOne ffh1;
 
-        
+
         public FirstFloorHallwayTwo()
-            : base(roomName)
+            : base("FirstFloorHallwayTwo")
         {
+
+            if (RoomManager.Instance.GetRoom("FirstFloorHallwayTwo") != null)
+            {
+                return;
+            }
+            RoomManager.Instance.createdRooms.Add(this);
+
             description = "The hallway on the first floor is dimly lit, " +
                 "with flickering torches casting long, dancing shadows.\n" +
                 "The stone walls are damp and the air is heavy with the scent of mildew.\n" +
                 "Behind you is the crumbling hole where the floor of the hallway once was.";
-            
+
+            checkRoom = RoomManager.Instance.GetRoom("FirstFloorHallwayOne");
+            ffh1 =  checkRoom != null ? (FirstFloorHallwayOne)checkRoom : new FirstFloorHallwayOne();
+
+
+
             //both the first and second sections have valid east and west exits
-            exits.Add("EAST", "Library");
-            exits.Add("WEST", "Armory");
-            exits.Add("BACKWARDS", "FirstFloorHallwayOne");
+            //exits.Add("EAST", "Library");
+            //exits.Add("WEST", "Armory");
+            exits.Add("BACKWARDS", ffh1);
         }
 
     }
