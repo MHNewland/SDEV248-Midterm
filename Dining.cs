@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace SDEV248Midterm
 {
-    class Kitchen : Room
+    class Dining:Room
     {
         //store each room that this room connects to
         FirstFloorHallwayOne ffh1;
 
 
-        public Kitchen()
-            : base("Kitchen")
+        public Dining()
+            : base("Dining")
         {
-            if (RoomManager.Instance.GetRoom("Kitchen") != null)
+            if (RoomManager.Instance.GetRoom("Dining") != null)
             {
                 return;
             }
@@ -28,12 +28,12 @@ namespace SDEV248Midterm
 
 
 
-            description = "You enter the kitchen and see it is in a state of disarray.\n" +
-                          "Pots and pans are scattered around, and the smell of decay is strong.\n"+
-                          "The old stone oven is cracked and blackened.";
+            description = "You enter the dining room. The long, wooden table\n"+
+                          "is rotting and the high-backed chairs are falling apart.\n"+
+                          "The fireplace is cold and filled with soot.";
 
             //add exit directions and room names available
-            exits.Add("EAST", ffh1);
+            exits.Add("WEST", ffh1);
         }
     }
 }

@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace SDEV248Midterm
 {
     public abstract class Character
     {
         private List<string> attackTypes = new List<string>{ "MELEE", "BLOCK", "RANGED" };
+        protected int maxHP;
         protected int hp;
         protected int melee;
         protected int shield;
@@ -84,6 +83,33 @@ namespace SDEV248Midterm
 
             //returns if character is still alive
             return hp > 0;
+        }
+
+        /// <summary>
+        /// returns current character hp
+        /// </summary>
+        /// <returns>int hp</returns>
+        public int GetHP()
+        {
+            return hp;
+        }
+
+        /// <summary>
+        /// returns current character max hp
+        /// </summary>
+        /// <returns>int maxHP</returns>
+        public int GetMaxHP()
+        {
+            return maxHP;
+        }
+
+        /// <summary>
+        /// returns current character's current and max hp
+        /// </summary>
+        /// <returns>(int hp, int maxHP)</returns>
+        public (int, int) GetHPStats()
+        {
+            return (hp, maxHP);
         }
     }
 }

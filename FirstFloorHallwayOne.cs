@@ -9,8 +9,7 @@ namespace SDEV248Midterm
         //store each room that this room connects to
         FirstFloorHallwayTwo ffh2;
         Kitchen kitchen;
-        //Dining dining;
-
+        Dining dining;
 
         public FirstFloorHallwayOne()
             : base("FirstFloorHallwayOne")
@@ -28,6 +27,9 @@ namespace SDEV248Midterm
             checkRoom = RoomManager.Instance.GetRoom("Kitchen");
             kitchen = checkRoom != null ? (Kitchen)checkRoom : new Kitchen();
 
+            checkRoom = RoomManager.Instance.GetRoom("dining");
+            dining = checkRoom != null ? (Dining)checkRoom : new Dining();
+
 
             description = "The hallway on the first floor is dimly lit, " +
                           "with flickering torches casting long, dancing shadows.\n" +
@@ -35,9 +37,9 @@ namespace SDEV248Midterm
                           "The carpet, threadbare and faded, runs along the center of the hallway.";
 
             //add exit directions and room names available
-            //exits.Add("EAST", dining);
             exits.Add("WEST", kitchen);
             exits.Add("FORWARD", ffh2);
+            exits.Add("EAST", dining); 
         }
     }
 }

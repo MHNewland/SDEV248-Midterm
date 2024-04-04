@@ -8,6 +8,10 @@ namespace SDEV248Midterm
 {
     class Player: Character
     {
+
+        Item equippedItem;
+
+
         public Player(int charChoice)
         {
             switch (charChoice)
@@ -15,6 +19,7 @@ namespace SDEV248Midterm
                 //Ranged
                 case 1:
                     {
+                        maxHP = 3;
                         hp = 3;
                         melee = 2;
                         shield = 3;
@@ -24,6 +29,7 @@ namespace SDEV248Midterm
                 //Attack
                 case 2:
                     {
+                        maxHP = 4;
                         hp = 4;
                         melee = 5;
                         shield = 1;
@@ -33,6 +39,7 @@ namespace SDEV248Midterm
                 //Defense
                 case 3:
                     {
+                        maxHP = 5;
                         hp = 5;
                         melee = 3;
                         shield = 5;
@@ -42,6 +49,7 @@ namespace SDEV248Midterm
                 default:
                     break;
             }
+            equippedItem = null;
         }
 
         /// <summary>
@@ -70,6 +78,37 @@ namespace SDEV248Midterm
                 }
             }
             Console.WriteLine($"Item \"{item}\" not found");
+        }
+
+        /// <summary>
+        /// Sets the current equipped item to the provided item.
+        /// </summary>
+        /// <param name="item"></param>
+        public void EquipItem(Item item)
+        {
+            equippedItem = item;
+        }
+
+        /// <summary>
+        /// Displays the player's inventory with item description and if the item is usable
+        /// </summary>
+        public void ViewInventory()
+        {
+            Console.Clear();
+            Console.WriteLine($"Inventory:\n");
+            foreach (Item i in inventory)
+            {
+                Console.WriteLine($"{i.itemName}");
+                Console.WriteLine($"  -Description: {i.description}");
+                Console.WriteLine($"  -Usable: {i.usable}");
+            }
+            Console.WriteLine("\n Press any key to return to the main menu...");
+            Console.ReadKey();
+        }
+
+        public void AddItem(Item item)
+        {
+            inventory.Add(item);
         }
     }
 }

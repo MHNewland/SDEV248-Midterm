@@ -10,6 +10,7 @@ namespace SDEV248Midterm
 
         //store each room that this room connects to
         FirstFloorHallwayOne ffh1;
+        SecondFloorHallway sfh;
 
 
         public FirstFloorHallwayTwo()
@@ -30,12 +31,15 @@ namespace SDEV248Midterm
             checkRoom = RoomManager.Instance.GetRoom("FirstFloorHallwayOne");
             ffh1 =  checkRoom != null ? (FirstFloorHallwayOne)checkRoom : new FirstFloorHallwayOne();
 
+            checkRoom = RoomManager.Instance.GetRoom("SecondFloorHallway");
+            sfh = checkRoom != null ? (SecondFloorHallway)checkRoom : new SecondFloorHallway();
 
 
             //both the first and second sections have valid east and west exits
             //exits.Add("EAST", "Library");
             //exits.Add("WEST", "Armory");
             exits.Add("BACKWARDS", ffh1);
+            exits.Add("UPSTAIRS", sfh);
         }
 
     }
