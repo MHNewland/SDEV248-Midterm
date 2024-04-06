@@ -7,12 +7,12 @@ namespace SDEV248Midterm
     public abstract class Character
     {
         private List<string> attackTypes = new List<string>{ "MELEE", "BLOCK", "RANGED" };
-        protected int maxHP;
-        protected int hp;
-        protected int melee;
-        protected int shield;
-        protected int bow;
-        protected bool alive;
+        public int maxHP { protected set; get; }
+        public int hp { protected set; get; }
+        public int melee { protected set; get; }
+        public int block { protected set; get; }
+        public int ranged { protected set; get; }
+        public bool alive { protected set; get; }
         protected List<Item> inventory;
 
         public Character()
@@ -20,8 +20,8 @@ namespace SDEV248Midterm
             //instantiate base character stats
             hp = 0;
             melee = 0;
-            shield = 0;
-            bow = 0;
+            block = 0;
+            ranged = 0;
             inventory = new List<Item>();
         }
 
@@ -55,10 +55,10 @@ namespace SDEV248Midterm
                         hit += melee;
                         break;
                     case "BLOCK":
-                        hit += shield;
+                        hit += block;
                         break;
                     case "RANGED":
-                        hit += bow;
+                        hit += ranged;
                         break;
                     default:
                         Console.WriteLine("how did you get to this option?");
@@ -73,43 +73,11 @@ namespace SDEV248Midterm
         /// <summary>
         /// <para>Adjusts the character's HP</para>
         /// <para>If damage is negative, will heal the character</para>
-        /// <para>Checks if character is still alive</para>
         /// </summary>
         /// <param name="damage"></param>
-        /// <returns>bool</returns>
-        public bool TakeDamage(int damage)
+        public void TakeDamage(int damage)
         {
             hp -= damage;
-
-            //returns if character is still alive
-            return hp > 0;
-        }
-
-        /// <summary>
-        /// returns current character hp
-        /// </summary>
-        /// <returns>int hp</returns>
-        public int GetHP()
-        {
-            return hp;
-        }
-
-        /// <summary>
-        /// returns current character max hp
-        /// </summary>
-        /// <returns>int maxHP</returns>
-        public int GetMaxHP()
-        {
-            return maxHP;
-        }
-
-        /// <summary>
-        /// returns current character's current and max hp
-        /// </summary>
-        /// <returns>(int hp, int maxHP)</returns>
-        public (int, int) GetHPStats()
-        {
-            return (hp, maxHP);
         }
     }
 }

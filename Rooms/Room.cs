@@ -15,6 +15,9 @@ namespace SDEV248Midterm {
         //list of items in the room
         protected List<Item> items;
 
+        //If the room has an enemy
+        protected Character enemy;
+
         //room being checked if it exists
         protected Room checkRoom;
 
@@ -26,6 +29,7 @@ namespace SDEV248Midterm {
             exits = new Dictionary<string, Room>();
             items = new List<Item>();
             visits = 0;
+            enemy = null;
         }
 
         /// <summary>
@@ -62,17 +66,69 @@ namespace SDEV248Midterm {
             return exits[direction];
         }
 
+        /// <summary>
+        /// Searches room's items and returns it if found
+        /// </summary>
+        /// <param name="itemStr"></param>
+        /// <returns>Item if found null if not.</returns>
+        public bool TryGetItem(string itemStr, out Item item)
+        {
+            item = null;
+            foreach(Item i in items)
+            {
+                if(i.itemName.ToUpper() == itemStr.ToUpper())
+                {
+                    item = i;
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// removes item from the room.
+        /// </summary>
+        /// <param name="item"></param>
         public void RemoveItem(string item)
         {
             foreach (Item i in items)
             {
-                if (i.itemName == item)
+                if (i.itemName.ToUpper() == item.ToUpper())
                 {
                     items.Remove(i);
-                    break;
+                    return;
                 }
             }
             Console.WriteLine($"Item {item} not found in room {roomName}");
+        }
+
+        /// <summary>
+        /// removes item from the room.
+        /// </summary>
+        /// <param name="item"></param>
+        public void RemoveItem(Item item)
+        {
+            items.Remove(item);
+        }
+
+        /// <summary>
+        /// returns the list of items as a string separated by commas
+        /// </summary>
+        /// <returns>string</returns>
+        public string GetItems()
+        {
+            return string.Join(", ", items);
+        }
+
+        public bool TryGetEnemy(out Character enemyChar, out bool alive)
+        {
+            enemyChar = null;
+            alive = false;
+            if(enemy == null) return false;
+
+            enemyChar = enemy;
+            alive = enemy.hp > 0;
+            return true;
         }
     }
 }

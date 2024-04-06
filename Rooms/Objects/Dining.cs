@@ -26,7 +26,9 @@ namespace SDEV248Midterm
             ffh1 = checkRoom != null ? (FirstFloorHallwayOne)checkRoom : new FirstFloorHallwayOne();
 
 
+            items.Add(new Sword());
 
+            enemy = new BaseEnemy();
 
             description = "You enter the dining room. The long, wooden table\n"+
                           "is rotting and the high-backed chairs are falling apart.\n"+
