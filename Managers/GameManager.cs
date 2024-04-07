@@ -276,7 +276,7 @@ namespace SDEV248Midterm
         {
             string hpStr = "";
             hpStr +=("[ ");
-            for (int hp = 0; hp < character.GetMaxHP(); hp++)
+            for (int hp = 0; hp < character.maxHP; hp++)
             {
                 if (hp < character.hp)
                 {
@@ -323,7 +323,6 @@ namespace SDEV248Midterm
 
             while (player.hp > 0 && enemy.hp > 0)
             {
-
                 do {
                     skipRound = false;
                     Console.Clear();
