@@ -1,0 +1,7 @@
+C:\Users\Owner\Desktop\New folder\bin\Debug\GameManager.exe.config
+C:\Users\Owner\Desktop\New folder\bin\Debug\GameManager.exe
+C:\Users\Owner\Desktop\New folder\bin\Debug\GameManager.pdb
+C:\Users\Owner\Desktop\New folder\obj\Debug\SDEV248Midterm.csproj.AssemblyReference.cache
+C:\Users\Owner\Desktop\New folder\obj\Debug\SDEV248Midterm.csproj.CoreCompileInputs.cache
+C:\Users\Owner\Desktop\New folder\obj\Debug\GameManager.exe
+C:\Users\Owner\Desktop\New folder\obj\Debug\GameManager.pdb
