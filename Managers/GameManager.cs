@@ -13,7 +13,8 @@ namespace SDEV248Midterm
             bool exit = false;
             string option;
 
-            Console.WriteLine("Write out introduction paragraph");
+            Console.WriteLine("Knight’s Quest: The Princess Rescue");
+            Console.WriteLine();
 
 
             do
@@ -53,7 +54,7 @@ namespace SDEV248Midterm
             Room currentRoom;
 
             List<string> travelWords = new List<string> { "GO", "WALK", "MOVE", "HEAD"};
-            List<string> actionWords = new List<string> { "LOOK", "INSPECT", "GRAB", "GET", "USE"};
+            List<string> actionWords = new List<string> { "LOOK", "INSPECT", "GRAB", "GET", "TAKE", "USE"};
             List<string> inventoryActionWords = new List<string> { "OPEN", "VIEW" };
             List<string> inventoryNames = new List<string> { "BAG", "INVENTORY", "BACKPACK" };
 
@@ -70,19 +71,19 @@ namespace SDEV248Midterm
             {
                 invalidInput = false;
                 Console.WriteLine("Choose your character");
-                Console.WriteLine("1. Ranged");
+                Console.WriteLine("1. Ranger");
                 Console.WriteLine("   HP: 3");
                 Console.WriteLine("   Melee: 2");
                 Console.WriteLine("   Ranged: 5");
                 Console.WriteLine("   Block: 3");
                 Console.WriteLine();
-                Console.WriteLine("2. Melee");
+                Console.WriteLine("2. Knight");
                 Console.WriteLine("   HP: 4");
                 Console.WriteLine("   Melee: 5");
                 Console.WriteLine("   Ranged: 3");
                 Console.WriteLine("   Block: 1");
                 Console.WriteLine();
-                Console.WriteLine("3. Defense");
+                Console.WriteLine("3. Palidin");
                 Console.WriteLine("   HP: 5");
                 Console.WriteLine("   Melee: 3");
                 Console.WriteLine("   Ranged: 0");
@@ -114,7 +115,36 @@ namespace SDEV248Midterm
             //Test player health bar
             //player.TakeDamage(2);
 
-            Console.WriteLine("Put instroduction paragraph here");
+            string playerTitle;
+            switch (playerChoice)
+            {
+                case 1:
+                    playerTitle = "Ranger";
+                    break;
+                case 2:
+                    playerTitle = "Knight";
+                    break;
+                case 3:
+                    playerTitle = "Paladin";
+                    break;
+                default:
+                    playerTitle = "Warrior";
+                    break;
+            }
+
+            Console.Clear();
+            Console.WriteLine($"\"Welcome Noble {playerTitle}, you have been tasked by his royal highness to \nsave his beloved daughter from the evil sorcerer Trogdar."); 
+            Console.WriteLine("He shall be found in his castle upon the highest peak south of the kingdom.");
+            Console.WriteLine("\nGood luck and if you succeed you'll be rewarded handsomely.\"");
+            Console.WriteLine("\nAs you finish reading the letter, you look up and see that apon the jagged peaks of");
+            Console.WriteLine("the mountain, cloaked in perpetual mist and shrouded by ancient pines, stands a Obsidian Spire.");
+            Console.WriteLine("Its twisted spires pierce the heavens like skeletal fingers, reaching for forbidden knowledge \nhidden among the stars.");
+            Console.WriteLine("The castle is a nightmare in stone, its walls hewn from black obsidian, casting the fortress \ninto perpetual twilight.");
+            Console.WriteLine("Gargoyles leer from every corner, their eyes glowing with malevolence. \nTheir wings are tattered, as if they’ve witnessed centuries of suffering.");
+            Console.WriteLine("\nThe entrance is a massive iron gate, adorned with twisted runes that writhe \nlike serpents when touched.");
+            Console.WriteLine("\nYou ready yourself as you enter.\n");
+
+           PressAnyKey();
             #region main game loop
             while (true)
             {
@@ -205,6 +235,7 @@ namespace SDEV248Midterm
                                     break;
                                 case "GRAB":
                                 case "GET":
+                                case "TAKE":
                                     Console.WriteLine($"You grab {roomItem} and add it to your inventory");
                                     currentRoom.RemoveItem(roomItem);
                                     player.AddItem(roomItem);
@@ -332,7 +363,7 @@ namespace SDEV248Midterm
                     Console.WriteLine($"{"Attack type",-15}{"Bonus for matchup win",0}");
                     Console.WriteLine($"{"  1. melee",-15}{"+" + player.melee,10}");
                     Console.WriteLine($"{"  2. ranged",-15}{"+" + player.ranged,10}");
-                    Console.WriteLine($"{"  3. block",-15}{"+" + player.block,10}");
+                    Console.WriteLine($"{"  3. block and counter",-15}{"+" + player.block,10}");
                     Console.WriteLine($"{"  4. use item", -15}");
                     Console.WriteLine($"{"  5. View Inventory",15}");
                     playerAttack = Console.ReadLine();
@@ -377,7 +408,7 @@ namespace SDEV248Midterm
                 
                 if(playerRoll > enemyRoll)
                 {
-                    Console.WriteLine($"You hit the enemy for {player.GetDamage(playerAttack)}!");
+                    Console.WriteLine($"You hit the enemy for {player.GetDamage(playerAttack)} damage!");
                     enemy.TakeDamage(player.GetDamage(playerAttack));
                 }else if (playerRoll < enemyRoll)
                 {
