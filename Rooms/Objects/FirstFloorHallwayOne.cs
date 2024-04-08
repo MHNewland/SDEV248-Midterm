@@ -7,7 +7,7 @@ namespace SDEV248Midterm
     public class FirstFloorHallwayOne : Room {
 
         //store each room that this room connects to
-        FirstFloorHallwayTwo ffh2;
+        Dungeon dungeon;
         Kitchen kitchen;
         Dining dining;
 
@@ -22,7 +22,7 @@ namespace SDEV248Midterm
             RoomManager.Instance.createdRooms.Add(this);
 
             checkRoom = RoomManager.Instance.GetRoom("FirstFloorHallwayTwo");
-            ffh2 = checkRoom != null ? (FirstFloorHallwayTwo)checkRoom : new FirstFloorHallwayTwo();
+            dungeon = checkRoom != null ? (FirstFloorHallwayTwo)checkRoom : new FirstFloorHallwayTwo();
 
             checkRoom = RoomManager.Instance.GetRoom("Kitchen");
             kitchen = checkRoom != null ? (Kitchen)checkRoom : new Kitchen();
@@ -38,7 +38,7 @@ namespace SDEV248Midterm
 
             //add exit directions and room names available
             exits.Add("WEST", kitchen);
-            exits.Add("FORWARD", ffh2);
+            exits.Add("FORWARD", dungeon);
             exits.Add("EAST", dining); 
         }
     }
