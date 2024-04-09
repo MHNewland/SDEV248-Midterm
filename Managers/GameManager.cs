@@ -315,7 +315,7 @@ namespace SDEV248Midterm
             int enemyAttack;
             string playerAttack;
             Console.WriteLine();
-            Console.WriteLine("You encouontered an enemy!");
+            Console.WriteLine("You encountered an enemy!");
             Console.WriteLine("Entering Combat...");
             PressAnyKey();
 
