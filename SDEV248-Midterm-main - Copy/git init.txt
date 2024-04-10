@@ -1,0 +1,4 @@
+git init
+git remote add origin https://github.com/MHNewland/SDEV248-Midterm.git
+git pull origin main
+git push --set-upstream origin main
