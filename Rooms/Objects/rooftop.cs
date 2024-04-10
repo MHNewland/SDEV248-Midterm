@@ -9,8 +9,6 @@ namespace SDEV248Midterm
     class Rooftop : Room
     {
         //store each room that this room connects to
-        SecondFloorHallway sfh;
-
 
         public Rooftop()
             : base("Rooftop")
@@ -35,7 +33,6 @@ namespace SDEV248Midterm
               "The wind keens mournfully through the gaps in the parapets, and the moon casts elongated shadows across the empty expanse.";
 
             //add exit directions and room names available
-            exits.Add("BACK", sfh);
         }
     }
 }

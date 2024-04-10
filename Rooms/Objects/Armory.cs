@@ -32,8 +32,6 @@ namespace SDEV248Midterm
                           " weapons hang haphazardly on the stone walls, and a thick layer of dust covers" +
                           " the worn wooden benches. The air is heavy with the smell of old metal and decay.";
 
-            enemy = new Boss();
-
             //add exit directions and room names available
             exits.Add("WEST", ffh2);
         }

@@ -36,8 +36,6 @@ namespace SDEV248Midterm
                           "The stone walls are damp and the air is heavy with the scent of mildew.\n" +
                           "The carpet, threadbare and faded, runs along the center of the hallway.";
 
-            items.Add(new Shield());
-
             //add exit directions and room names available
             exits.Add("WEST", kitchen);
             exits.Add("FORWARD", ffh2);

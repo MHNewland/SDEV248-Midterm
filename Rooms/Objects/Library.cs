@@ -25,6 +25,8 @@ namespace SDEV248Midterm
             checkRoom = RoomManager.Instance.GetRoom("FirstFloorHallwayTwo");
             ffh2 = checkRoom != null ? (FirstFloorHallwayTwo)checkRoom : new FirstFloorHallwayTwo();
 
+            items.Add(new Shield());
+
 
             description = "You enter the library. It's is filled with dusty, moth-eaten books.\n"+
                           "The wooden shelves creak ominously, and the once plush reading\n"+
