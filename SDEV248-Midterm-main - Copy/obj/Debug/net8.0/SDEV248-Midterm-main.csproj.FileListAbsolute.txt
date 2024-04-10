@@ -1,4 +1,0 @@
-C:\Users\Owner\Desktop\SDEV248-Midterm-main\obj\Debug\net8.0\SDEV248-Midterm-main.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Owner\Desktop\SDEV248-Midterm-main\obj\Debug\net8.0\SDEV248-Midterm-main.AssemblyInfoInputs.cache
-C:\Users\Owner\Desktop\SDEV248-Midterm-main\obj\Debug\net8.0\SDEV248-Midterm-main.AssemblyInfo.cs
-C:\Users\Owner\Desktop\SDEV248-Midterm-main\obj\Debug\net8.0\SDEV248-Midterm-main.csproj.CoreCompileInputs.cache
