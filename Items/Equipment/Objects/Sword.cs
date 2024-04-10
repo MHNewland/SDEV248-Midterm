@@ -9,7 +9,7 @@ namespace SDEV248Midterm
     class Sword: Equipment
     {
 
-        public Sword(): base("Sword", "A steel sword.", "Adds 1 to melee damage.")
+        public Sword(): base("Sword", "A sharpened steel <sword>.", "Adds 1 to melee damage.")
         {
            
         }

@@ -53,34 +53,6 @@ namespace SDEV248Midterm
         }
 
         /// <summary>
-        /// <para>checks through player's inventory and uses the item if it's usable</para>
-        /// </summary>
-        /// <param name="item"></param>
-        //public void UseItem(string item)
-        //{
-        //    //check if item is in inventory
-        //    foreach (Item i in inventory)
-        //    {
-        //        if (i.itemName.ToUpper() == item.ToUpper())
-        //        {
-        //            if (i.usable)
-        //            {
-        //                i.Use(this);
-        //                inventory.Remove(i);
-        //            }
-        //            else
-        //            {
-        //                Console.WriteLine("Item is not usable");
-        //            }
-
-        //            //item was found, stop the loop
-        //            break;
-        //        }
-        //    }
-        //    Console.WriteLine($"Item \"{item}\" not found");
-        //}
-
-        /// <summary>
         /// Sets the current equipped item to the provided item.
         /// </summary>
         /// <param name="item"></param>
@@ -157,6 +129,28 @@ namespace SDEV248Midterm
                     break;
             }
             return 1;
+        }
+
+        /// <summary>
+        /// If the player has the shield equipped, it has a 1/4 chance of blocking the attack.
+        /// </summary>
+        /// <param name="damage"></param>
+        public new void TakeDamage(int damage)
+        {
+            if(equippedItem != null)
+            {
+                if(equippedItem.itemName.ToUpper() == "SHIELD")
+                {
+                    Random rand = new Random();
+                    int blockChance = rand.Next(1, 5);
+                    if (blockChance == 4)
+                    {
+                        Console.WriteLine("You blocked the attack with your shield");
+                        return;
+                    }
+                }
+            }
+            hp -= damage;
         }
     }
 }

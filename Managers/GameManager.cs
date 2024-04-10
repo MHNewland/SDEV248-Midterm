@@ -346,7 +346,13 @@ namespace SDEV248Midterm
             int enemyAttack;
             string playerAttack;
             Console.WriteLine();
-            Console.WriteLine("You encouontered an enemy!");
+            if (enemy.GetType().Name == "BaseEnemy")
+            {
+                Console.WriteLine("You encouontered an enemy!");
+            }
+            else {
+                Console.WriteLine("You have encountered Trogdor, the evil wizard");
+            }
             Console.WriteLine("Entering Combat...");
             PressAnyKey();
 
@@ -436,7 +442,17 @@ namespace SDEV248Midterm
             else if(enemy.hp <=0)
             {
                 Console.WriteLine();
-                Console.WriteLine("You defeated the enemy in this room, congratulations!");
+                if (enemy.GetType().Name == "BaseEnemy")
+                {
+                    Console.WriteLine("You defeated the enemy in this room, congratulations!");
+                }
+                else if(enemy.GetType().Name == "Boss")
+                {
+                    Console.WriteLine("Congratulations! You have defeated Trogdor and saved the princess." +
+                                      "You return victoriously and collect your reward from the king. " +
+                                      "\nThank you for playing!");
+                    return false;
+                }
                 PressAnyKey();
                 Console.Clear();
                 return true;

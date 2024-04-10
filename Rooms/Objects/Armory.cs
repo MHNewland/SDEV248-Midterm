@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace SDEV248Midterm
 {
-    class Library : Room
+    class Armory : Room
     {
         //store each room that this room connects to
         FirstFloorHallwayTwo ffh2;
 
 
-        public Library()
-            : base("Library")
+        public Armory()
+            : base("Armory")
         {
-            if (RoomManager.Instance.GetRoom("Library") != null)
+            if (RoomManager.Instance.GetRoom("Armory") != null)
             {
                 return;
             }
@@ -25,13 +25,17 @@ namespace SDEV248Midterm
             checkRoom = RoomManager.Instance.GetRoom("FirstFloorHallwayTwo");
             ffh2 = checkRoom != null ? (FirstFloorHallwayTwo)checkRoom : new FirstFloorHallwayTwo();
 
+            items.Add(new Sword());
 
-            description = "You enter the library. It's is filled with dusty, moth-eaten books.\n"+
-                          "The wooden shelves creak ominously, and the once plush reading\n"+
-                          "chairs are now torn and faded.";
+
+            description = "You enter an armory. It's a chilling reminder of the castle’s violent past.Rusty" +
+                          " weapons hang haphazardly on the stone walls, and a thick layer of dust covers" +
+                          " the worn wooden benches. The air is heavy with the smell of old metal and decay.";
+
+            enemy = new Boss();
 
             //add exit directions and room names available
-            exits.Add("EAST", ffh2);
+            exits.Add("WEST", ffh2);
         }
     }
 }
