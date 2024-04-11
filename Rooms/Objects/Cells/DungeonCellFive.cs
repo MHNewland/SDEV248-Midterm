@@ -27,7 +27,7 @@ namespace SDEV248Midterm
             checkRoom = RoomManager.Instance.GetRoom("DungeonCells");
             doffice = checkRoom != null ? (DungeonCells)checkRoom : new DungeonCells();
 
-            item.Add(new Key());
+            item.Add(new DungeonStorageKey());
 
             enemy = new BaseEnemy();
 
