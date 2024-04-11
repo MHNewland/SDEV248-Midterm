@@ -12,6 +12,10 @@ namespace SDEV248Midterm
 
         public List<Room> createdRooms = new List<Room>();
 
+        public Room currentRoom;
+
+        public Player player;
+
         private RoomManager(){}
 
 

@@ -137,7 +137,7 @@ namespace SDEV248Midterm
             Console.WriteLine("He shall be found in his castle upon the highest peak south of the kingdom.");
             Console.WriteLine("\nGood luck and if you succeed you'll be rewarded handsomely.\"");
             Console.WriteLine("\nAs you finish reading the letter, you look up and see that apon the jagged peaks of");
-            Console.WriteLine("the mountain, cloaked in perpetual mist and shrouded by ancient pines, stands a Obsidian Spire.");
+            Console.WriteLine("the mountain, cloaked in perpetual mist and shrouded by ancient pines, stands an Obsidian Spire.");
             Console.WriteLine("Its twisted spires pierce the heavens like skeletal fingers, reaching for forbidden knowledge \nhidden among the stars.");
             Console.WriteLine("The castle is a nightmare in stone, its walls hewn from black obsidian, casting the fortress \ninto perpetual twilight.");
             Console.WriteLine("Gargoyles leer from every corner, their eyes glowing with malevolence. \nTheir wings are tattered, as if they’ve witnessed centuries of suffering.");
@@ -211,6 +211,8 @@ namespace SDEV248Midterm
                         if (currentRoom.GetExits().Contains(playerInputArray[1]))
                         {
                             currentRoom = currentRoom.GetRoom(playerInputArray[1]);
+                            RoomManager.Instance.currentRoom = currentRoom;
+                            
                         }
                         else
                         {
@@ -236,7 +238,15 @@ namespace SDEV248Midterm
                                 case "GRAB":
                                 case "GET":
                                 case "TAKE":
+
                                     Console.WriteLine($"You grab {roomItem} and add it to your inventory");
+                                    if(roomItem.itemName.ToUpper() == "SWORD" ||
+                                       roomItem.itemName.ToUpper() == "BOW" ||
+                                       roomItem.itemName.ToUpper() == "SHIELD")
+                                    {
+                                        Console.WriteLine("Don't forget to use the item to equip it.");
+                                    }
+
                                     currentRoom.RemoveItem(roomItem);
                                     player.AddItem(roomItem);
                                     Console.WriteLine("");
@@ -290,7 +300,7 @@ namespace SDEV248Midterm
             Console.Clear();
             Console.WriteLine("To navigate this game, the console will output a description of where the player is, what things there are to inspect, and valid exits.");
             Console.WriteLine("The player can enter their commands in the form of <movement> <direction> or <action> <item> and the game will describe what happens");
-            Console.WriteLine("\nIn this game, combat is determined by a combination of RNG and a format similar to Rock/Papper/Scissors.");
+            Console.WriteLine("\nIn this game, combat is determined by a combination of RNG and a format similar to Rock/Paper/Scissors.");
             Console.WriteLine("During combat, both the player and the enemy choose an attack type.");
             Console.WriteLine("  -Melee attacks beat ranged attacks.");
             Console.WriteLine("  -Ranged attacks beat blocking.");

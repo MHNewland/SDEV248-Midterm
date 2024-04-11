@@ -13,7 +13,7 @@ namespace SDEV248Midterm
         public int block { protected set; get; }
         public int ranged { protected set; get; }
         public bool alive { protected set; get; }
-        protected List<Item> inventory;
+        public List<Item> inventory { protected set; get; }
 
         public Character()
         {

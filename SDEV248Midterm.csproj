@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Characters\**\*" />
-    <Compile Include="Items\**\*" />
+    <Compile Include="Items\**\*"/>
     <Compile Include="Rooms\**\*" />
     <Compile Include="Managers\**\*" />
   </ItemGroup>
