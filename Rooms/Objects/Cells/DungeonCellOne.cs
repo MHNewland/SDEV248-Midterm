@@ -13,7 +13,7 @@ namespace SDEV248Midterm
 
         const string roomName = "DungeonCellOne";
 
-        public DungeonOffice()
+        public DungeonCellOne()
             : base(roomName)
         {
             if (RoomManager.Instance.GetRoom("DungeonCellOne") != null)
