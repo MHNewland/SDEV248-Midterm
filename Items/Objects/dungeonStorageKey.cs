@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 namespace SDEV248Midterm
 {
 
-    class Torch : Equipment
+    class DungeonStorageKey : Equipment
     {
 
-        public Torch() : base("Key", "It's old and rusted")
+        public DungeonStorageKey() : base("Key", "It's old and rusted.")
         {
 
         }
