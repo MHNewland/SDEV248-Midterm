@@ -159,6 +159,11 @@ namespace SDEV248Midterm
 
                 //get description of the room
                 Console.WriteLine(currentRoom.ToString());
+                if (currentRoom.roomName == "Storage")
+                {
+                    DungeonStorage ds = (DungeonStorage)currentRoom;
+                    ds.SayCode();
+                }
 
                 //if there is a living enemy in the room, go to combat
                 if (currentRoom.TryGetEnemy(out Character enemyChar, out bool alive))

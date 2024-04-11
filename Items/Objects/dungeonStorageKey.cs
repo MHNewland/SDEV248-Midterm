@@ -19,10 +19,11 @@ namespace SDEV248Midterm
         {
             DungeonOffice doffice = (DungeonOffice)RoomManager.Instance.GetRoom("DungeonOffice");
 
-            if (RoomManager.Instance.currentRoom.GetType().Name.ToUpper() == "DUNGEONCELLS")
+            if (RoomManager.Instance.currentRoom.GetType().Name.ToUpper() == "DUNGEONOFFICE")
             {
-                Console.WriteLine("You unlock the door to watch seems to be a storage room.");
+                Console.WriteLine("You unlock the door to which seems to be a storage room.");
                 doffice.storeUnlocked = true;
+                doffice.UnlockStoreRoom();
             }
         }
     }

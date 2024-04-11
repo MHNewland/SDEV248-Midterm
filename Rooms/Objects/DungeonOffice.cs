@@ -26,7 +26,7 @@ namespace SDEV248Midterm
             if (RoomManager.Instance.GetRoom("DungeonOffice") != null)
             {
                 DungeonOffice dungOff = (DungeonOffice)RoomManager.Instance.GetRoom("DungeonOffice");
-                dungOff.AddSecretExit();
+                return;
             }
 
             RoomManager.Instance.createdRooms.Add(this);
@@ -34,7 +34,7 @@ namespace SDEV248Midterm
             // Checking for all surrounding rooms
             checkRoom = RoomManager.Instance.GetRoom("DungeonCells");
             dc = checkRoom != null ? (DungeonCells)checkRoom : new DungeonCells();
-              
+
             checkRoom = RoomManager.Instance.GetRoom("DungeonStorage");
             dstore = checkRoom != null ? (DungeonStorage)checkRoom : new DungeonStorage();
 
@@ -51,25 +51,32 @@ namespace SDEV248Midterm
 
         }
 
-        public void AddSecretExit()
+        public void LightRoom()
         {
-            if (torchLit)
-            {
-                description = "The Warden’s office lies forgotten, its grandeur lost to dust and cobwebs. \n" +
-                              "Maps and weapons are relics of the past, \n" +
-                              "and the once-warm hearth is now cold, leaving the room silent and forlorn.\n" +
-                              "The entire floor is covered in what looks to be an inky, black oil.";
-            }
+            description = "The Warden’s office lies forgotten, its grandeur lost to dust and cobwebs. \n" +
+                          "Maps and weapons are relics of the past, \n" +
+                          "and the once-warm hearth is now cold, leaving the room silent and forlorn.\n" +
+                          "The entire floor is covered in what looks to be an inky, black oil.\n" +
+                          "A locked door stands to the right of the open door to the cells.";
+        }
+
+        public void UnlockStoreRoom()
+        {
 
             if (storeUnlocked)
             {
                 exits.Add("SOUTH", dstore);
             }
+        }
+
+        public void AddSecretExit()
+        {
 
             if (secretEntrance)
             {
                 exits.Add("NORTH", library);
             }
         }
+
     }
 }

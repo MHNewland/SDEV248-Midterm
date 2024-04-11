@@ -22,7 +22,6 @@ namespace SDEV248Midterm
         {
             if (RoomManager.Instance.GetRoom("DungeonStorage") != null)
             {
-                SayCode();
                 return;
             }
 
@@ -40,8 +39,12 @@ namespace SDEV248Midterm
             // Exits from the storage room        
             exits.Add("NORTH", doffice);
         }
+        public override string ToString()
+        {
+            return base.ToString();
+        }
 
-        private void SayCode()
+        public void SayCode()
         {
             Console.WriteLine("Say the code?");
             code = Console.ReadLine();
@@ -50,6 +53,7 @@ namespace SDEV248Midterm
             if (code.ToUpper() == "LIBRARY")
             {
                 doffice.secretEntrance = true;
+                doffice.AddSecretExit();
             }
         }
     }

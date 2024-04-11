@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 namespace SDEV248Midterm
 {
 
-    class Torch : Equipment
+    class Torch : Item
     {
 
-        public Torch() : base("Torch", "A thick wooden stick wrapped in cloth, can be used as a <torch>", "Lights up the room when lit")
+        public Torch() : base("Torch", "A thick wooden stick wrapped in cloth, can be used as a <torch>", "Lights up the room when lit",true, true)
         {
             
         }
 
-        public void Use(Player player)
+        public override void Use(Player player)
         {
             DungeonOffice doffice = (DungeonOffice) RoomManager.Instance.GetRoom("DungeonOffice");
             if (doffice.torchLit)
@@ -28,6 +28,7 @@ namespace SDEV248Midterm
             {
                 Console.WriteLine("You light your torch off the eternal flame.");
                 doffice.torchLit = true;
+                doffice.LightRoom();
             }
         }
     }
