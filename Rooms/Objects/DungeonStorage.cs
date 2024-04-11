@@ -13,14 +13,16 @@ namespace SDEV248Midterm
 
         const string roomName = "Storage";
 
-        bool firstEntrance = true;
-        bool secretEntrance = false;
+        private string code;
 
-        public DungeonOffice()
+        public bool storeUnlocked = false;
+
+        public DungeonStorage()
             : base(roomName)
         {
-            if (RoomManager.Instance.GetRoom("DungeonOffice") != null)
+            if (RoomManager.Instance.GetRoom("DungeonStorage") != null)
             {
+                SayCode();
                 return;
             }
 
@@ -32,10 +34,24 @@ namespace SDEV248Midterm
 
             description = "Iron bound chests and wooden crates are stacked haphazardly, \n" +
                           "each filled with the spoils of conquest or the personal effects of prisoners long forgotten. \n" +
-                          "The air is musty, heavy with the scent of rust and decay.";
+                          "The air is musty, heavy with the scent of rust and decay.\n" +
+                          "There is red writing on the wall which reads, say the code to reveal the exit.";
 
-            // Exits from the Warden's Office        
+            // Exits from the storage room        
             exits.add("NORTH", DungeonOffice)
+            SayCode();
+        }
+
+        private void SayCode()
+        {
+            console.WriteLine("Say the code?");
+            code = console.ReadLine();
+            DungeonOffice doffice = (DungeonOffice)RoomManager.Instance.GetRoom("DungeonOffice");
+
+            if (code.ToUpper() == "LIBRARY")
+            {
+                doffice.secretEntrance = true;
+            }
         }
     }
 }

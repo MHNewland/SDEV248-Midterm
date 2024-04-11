@@ -17,16 +17,17 @@ namespace SDEV248Midterm
         DungeonCellOne d1;
         DungeonCellOne d1;
 
-        private int pages;
+        public int pages;
 
-        const string roomName = "Cells";
+        const string roomName = "DungeonCells";
 
         public DungeonCells()
             : base(roomName)
         {
-            if (RoomManager.Instance.GetRoom("DungeonOffice") != null)
+            if (RoomManager.Instance.GetRoom("DungeonCells") != null)
             {
-                return;
+                DungeonCells dc = (DungeonCells)RoomManager.Instance.GetRoom("DungeonCells");
+                dc.PageCount();
             }
 
             RoomManager.Instance.createdRooms.Add(this);
@@ -35,12 +36,11 @@ namespace SDEV248Midterm
             checkRoom = RoomManager.Instance.GetRoom("DungeonOffice");
             doffice = checkRoom != null ? (DungeonOffice)checkRoom : new DungeonOffice();
 
-            enemy = new BaseEnemy();
+            item.Add(new Potion());
 
             description = "The dungeon lies deep within the bowels of obsidian spire, \n" +
                           "its cold stone walls echoing with the cries of the condemned. " +
-                          "A narrow, torch-lit corridor leads to a heavy iron door, rusted and pitted from years of use. \n" +
-                          "Beyond it lies a grim chamber divided into six cells, each barely large enough for a single occupant.\n";
+                          "The chamber is lit by an eternal flame and divided into six cells, each barely large enough for a single occupant.\n";
 
             // Exits from the Warden's Office        
             exits.add("WEST", DungeonOffice)
@@ -52,18 +52,34 @@ namespace SDEV248Midterm
             exits.add("Cell 6", DungeonCellSix)
         }
 
-        switch (pages)
-            case 1:
-                description += "\nA";
-                break;
-            case 2:
-                description += "<-";
-                break;
-            case 3:
-                description += "3";
-                break;
-            case 4:
-                description += "ifyoxov";
-                break;
+        public void PageCount()
+        {
+            for (item in player.inventory.length())
+            {
+                if (item.itemName == "Page")
+                {
+                    pages += 1;
+                }
+            }
+
+            switch (pages)
+            {
+                case 1:
+                    description += "\nA";
+                    break;
+                case 2:
+                    description += "<-";
+                    break;
+                case 3:
+                    description += "3";
+                    break;
+                case 4:
+                    description += "ifyoxov";
+                    break;
+                default:
+                    break;
+            }
+            pages = 0;
+        }
     }
 }

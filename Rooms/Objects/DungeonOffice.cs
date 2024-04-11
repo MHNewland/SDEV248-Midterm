@@ -14,10 +14,11 @@ namespace SDEV248Midterm
         DungeonStairs dstairs;
 
 
-        const string roomName = "Warden's Office";
+        const string roomName = "DungeonOffice";
 
         public bool torchLit = false;
         public bool secretEntrance = false;
+        public bool storeUnlocked = false;
 
         public DungeonOffice()
             : base(roomName)
@@ -47,7 +48,6 @@ namespace SDEV248Midterm
 
             // Exits from the Warden's Office        
             exits.add("EAST", dc)
-            exits.add("SOUTH", dstore)
 
         }
 
@@ -55,9 +55,15 @@ namespace SDEV248Midterm
         {
             if (torchLit)
             {
-                description = "The Warden’s office lies forgotten, its grandeur lost to dust and cobwebs. Maps and weapons are relics of the past, \n" +
-                                       "and the once-warm hearth is now cold, leaving the room silent and forlorn.\n" +
-                                       "The entire floor is covered in what looks to be an inky, black oil.";
+                description = "The Warden’s office lies forgotten, its grandeur lost to dust and cobwebs. \n" +
+                              "Maps and weapons are relics of the past, \n" +
+                              "and the once-warm hearth is now cold, leaving the room silent and forlorn.\n" +
+                              "The entire floor is covered in what looks to be an inky, black oil.";
+            }
+
+            if (storeUnlocked)
+            {
+                exits.Add("SOUTH", dstore)
             }
 
             if (secretEntrance)
@@ -65,8 +71,5 @@ namespace SDEV248Midterm
                 exits.Add("NORTH", library);
             }
         }
-
-
-
-}
+    }
 }
