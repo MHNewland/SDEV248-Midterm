@@ -150,7 +150,7 @@ namespace SDEV248Midterm
                     }
                 }
             }
-           // hp -= damage;
+            hp -= damage;
         }
     }
 }
