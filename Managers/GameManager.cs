@@ -270,6 +270,7 @@ namespace SDEV248Midterm
    
                                     playerItem.Use(player);
                                     PressAnyKey();
+                                    player.inventory.Remove(playerItem);
                                 }
                             }
                         }

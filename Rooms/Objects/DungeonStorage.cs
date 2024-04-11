@@ -46,7 +46,7 @@ namespace SDEV248Midterm
 
         public void SayCode()
         {
-            Console.WriteLine("Say the code?");
+            Console.WriteLine("Say the code:");
             code = Console.ReadLine();
             DungeonOffice doffice = (DungeonOffice)RoomManager.Instance.GetRoom("DungeonOffice");
 

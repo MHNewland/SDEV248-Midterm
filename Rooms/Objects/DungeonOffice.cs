@@ -74,6 +74,7 @@ namespace SDEV248Midterm
 
             if (secretEntrance)
             {
+                Console.WriteLine("You hear a thunk from the office behind you");
                 exits.Add("NORTH", library);
             }
         }

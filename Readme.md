@@ -10,9 +10,6 @@ This is a text-based RPG style game created for the <i>SDEV248: Advanced Simulat
 To navigate this game, the console will output a description of where the player is, what things there are to inspect, and valid exits.
 The player can enter their commands in the form of \<movement> \<direction> or \<action> \<item> and the game will describe what happens.
 
-valid movement words are: "GO", "WALK", "MOVE", "HEAD"
-
-
 In this game, combat is determined by a combination of RNG and a format similar to Rock/Paper/Scissors.
 During combat, both the player and the enemy choose an attack type.
   -Melee attacks beat ranged attacks.
