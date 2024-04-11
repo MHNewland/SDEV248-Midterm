@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace SDEV248Midterm
 {
-    class DungeonStorage : Room
+    class DungeonCellTwo : Room
     {
         // Store connecting rooms
         DungeonCells dc;
 
         const string roomName = "DungeonCellTwo";
 
-        public DungeonOffice()
+        public DungeonCellTwo()
             : base(roomName)
         {
             if (RoomManager.Instance.GetRoom("DungeonCellTwo") != null)
@@ -31,7 +31,7 @@ namespace SDEV248Midterm
 
             description = "The silence is broken only by the occasional drip of water from a hidden leak.\n" +
                           "Sometimes, if you listen closely, \n" +
-                          "you can hear faint echoes of anguished whispers—the remnants of forgotten souls trapped in this desolate cell";
+                          "you can hear faint echoes of anguished whispersâ€”the remnants of forgotten souls trapped in this desolate cell";
 
             // Exits from the Warden's Office        
             exits.add("BACK", dc)
