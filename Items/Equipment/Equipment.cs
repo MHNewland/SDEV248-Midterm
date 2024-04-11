@@ -8,7 +8,7 @@ namespace SDEV248Midterm
 {
     public abstract class Equipment : Item
     {
-        public Equipment(string name, string description, string effect) : base(name, description, effect, false) { }
+        public Equipment(string name, string description, string effect) : base(name, description, effect, false, true) { }
 
         public override void Use(Player player)
         {

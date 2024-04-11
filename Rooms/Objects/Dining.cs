@@ -26,7 +26,7 @@ namespace SDEV248Midterm
             ffh1 = checkRoom != null ? (FirstFloorHallwayOne)checkRoom : new FirstFloorHallwayOne();
 
 
-            items.Add(new Sword());
+            items.Add(new Bow());
 
             enemy = new BaseEnemy();
 

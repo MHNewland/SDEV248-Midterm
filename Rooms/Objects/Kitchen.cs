@@ -25,10 +25,6 @@ namespace SDEV248Midterm
             checkRoom = RoomManager.Instance.GetRoom("FirstFloorHallwayOne");
             ffh1 = checkRoom != null ? (FirstFloorHallwayOne)checkRoom : new FirstFloorHallwayOne();
 
-            items.Add(new Bow());
-
-            enemy = new BaseEnemy();
-
             description = "You enter the kitchen and see it is in a state of disarray.\n" +
                           "Pots and pans are scattered around, and the smell of decay is strong.\n"+
                           "The old stone oven is cracked and blackened.";

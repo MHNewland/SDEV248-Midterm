@@ -120,6 +120,15 @@ namespace SDEV248Midterm {
             return string.Join(", ", items);
         }
 
+
+        /// <summary>
+        /// <para>Checks to see if the room has an enemy.</para>
+        /// <para>sets enemyChar to the enemy character if it does</para>
+        /// <para>and sets alive to whether or not the enemy is still alive.</para>
+        /// </summary>
+        /// <param name="enemyChar"></param>
+        /// <param name="alive"></param>
+        /// <returns>true if enemy is found, false if not.</returns>
         public bool TryGetEnemy(out Character enemyChar, out bool alive)
         {
             enemyChar = null;
